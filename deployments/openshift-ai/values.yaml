@@ -33,6 +33,6 @@ components:
   dashboard:
     managementState: Managed
   llamastackoperator:
-    managementState: Removed
+    managementState: Managed
   trainingoperator:
     managementState: Removed
