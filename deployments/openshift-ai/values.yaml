@@ -36,3 +36,5 @@ components:
     managementState: Managed
   trainingoperator:
     managementState: Removed
+
+dataScienceClusterInitialization: null
