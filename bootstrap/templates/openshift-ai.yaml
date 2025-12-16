@@ -11,8 +11,11 @@ spec:
   project: default
   source:
     path: deployments/openshift-ai
-    repoURL: https://github.com/rhpds/private-llmaas-multitenant
-    targetRevision: taylor-testing
+    repoURL: https://github.com/jharmison-redhat/openshift-setup
+    targetRevision: main
+    helm:
+      valueFiles:
+        - deployments/openshift-ai/values.yaml
   syncPolicy:
     automated:
       prune: true
