@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     path: deployment/overlays/openshift
-    repoURL: https://github.com/models-as-a-service.git
+    repoURL: https://github.com/opendatahub-io/models-as-a-service.git
     targetRevision: 39e62e98f382621e401211ae21cb9de0601b8266
     kustomize:
       patches:
