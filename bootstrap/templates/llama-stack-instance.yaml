@@ -9,9 +9,8 @@ spec:
   generators:
     - list:
         elements:
-        {{- $userCount := int .Values.user.count }}
-        {{- range $index := until $userCount }}
-          - user: {{ $.Values.user.prefix }}{{ add $index 1}}
+        {{- range $index := until (int .Values.user.count) }}
+          - user: {{ $.Values.user.prefix }}{{ add $index 1 }}
         {{- end }}
   template:
     metadata:
