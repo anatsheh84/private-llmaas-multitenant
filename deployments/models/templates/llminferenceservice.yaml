@@ -37,18 +37,18 @@ spec:
       - --ssl-keyfile=/var/run/kserve/tls/tls.key
       {{- toYaml .extraArgs | nindent 6 }}
       ports:
-      - containerPort: 8080
+      - containerPort: 8000
         name: http
         protocol: TCP
       livenessProbe:
         httpGet:
           path: /health
-          port: 8080
+          port: 8000
           scheme: HTTPS
       readinessProbe:
         httpGet:
           path: /health
-          port: 8080
+          port: 8000
           scheme: HTTPS
       resources:
         {{- toYaml .resources | nindent 8 }}
