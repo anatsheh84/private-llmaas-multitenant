@@ -1,0 +1,46 @@
+image: quay.io/modh/vllm:rhoai-2.23-cuda
+
+models:
+  - name: granite-3dot2-8b-instruct
+    displayName: Granite 3.2 8B Instruct
+    uri: oci://quay.io/redhat-ai-services/modelcar-catalog:granite-3.2-8b-instruct
+    resources:
+      limits:
+        cpu: "6"
+        memory: 48Gi
+        nvidia.com/gpu: "1"
+      requests:
+        cpu: "4"
+        memory: 32Gi
+        nvidia.com/gpu: "1"
+    extraArgs:
+      - --enable-auto-tool-choice
+      - --tool-call-parser=granite
+      - --chat-template=/app/data/template/tool_chat_template_granite.jinja
+      - --max-model-len=120000
+    tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Equal
+        value: l40-gpu
+  - name: llama-guard-3-1b
+    displayName: Llama Guard 3 1B
+    uri: oci://quay.io/rh-aiservices-bu/llama-guard-3-1b-modelcar:2.0.0
+    resources:
+      limits:
+        cpu: "6"
+        memory: 24Gi
+        nvidia.com/gpu: "1"
+      requests:
+        cpu: "4"
+        memory: 16Gi
+        nvidia.com/gpu: "1"
+    extraArgs:
+      - --max-model-len=6048
+      - --dtype=half
+      - --enable-chunked-prefill
+    tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Equal
+        value: l4-gpu

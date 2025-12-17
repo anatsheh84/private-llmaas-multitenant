@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: models
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.bootstrap.repoURL}}
+    targetRevision: {{ .Values.bootstrap.targetRevision }}
+    path: deployments/models
+  destination:
+    name: in-cluster
+    namespace: llm
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
