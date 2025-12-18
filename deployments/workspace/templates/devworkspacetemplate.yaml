@@ -5,6 +5,7 @@ metadata:
     che.eclipse.org/components-update-policy: managed
     che.eclipse.org/plugin-registry-url: {{ .Values.devworkspacetemplate.devfile }}
   name: {{ .Values.devworkspacetemplate.name }}
+  namespace: {{ .Values.namespacePrefix }}-{{ .Values.username }}
 spec:
   commands:
   - apply:
