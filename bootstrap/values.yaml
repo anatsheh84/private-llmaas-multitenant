@@ -12,14 +12,8 @@ user:
   prefix: user
 
 slackMcpSecret:
-  namespace: lls-demo
-  name: slack-secret
-  path: mcp_servers
-  slackBotToken: secret
-  slackTeamId: secret
-  graniteToken: secret
-  llamaToken: secret
-
+  slackBotToken: "xoxb-your-token"
+  
 deployer:
   apiUrl: https://api.cluster-guid.sandbox.opentlc.com:6443
   domain: apps.cluster-guid.sandbox.opentlc.com
