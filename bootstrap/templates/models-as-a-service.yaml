@@ -37,6 +37,14 @@ spec:
             - op: replace
               path: /spec/template/spec/containers/0/image
               value: quay.io/opendatahub/maas-api:latest-0681979
+        - target:
+            kind: ServiceMonitor
+            name: limitador-metrics
+            namespace: kuadrant-system
+          patch: |-
+            - op: add
+              path: /metadata/labels/openshift.io~1user-monitoring
+              value: "true"
   syncPolicy:
     automated:
       prune: true
