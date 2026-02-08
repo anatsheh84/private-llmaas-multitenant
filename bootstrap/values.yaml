@@ -3,9 +3,9 @@
 
 bootstrap:
   # Git repository URL
-  repoURL: https://github.com/rhpds/private-llmaas-multitenant
+  repoURL: https://github.com/anatsheh84/private-llmaas-multitenant
   # Branch or tag to use
-  targetRevision: taylor-testing
+  targetRevision: v1.1.1
 
 user:
   count: 5
